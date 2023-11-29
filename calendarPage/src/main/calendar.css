@@ -1,0 +1,143 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css?family=Questrial&display=swap');
+
+body {
+    background-color : skyblue;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+/* calendarContainer에만 흰색 배경 적용 */
+.calendarContainer {
+    background-color: white;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid black;
+}
+
+button {
+    background-color: white;  /* 배경 색을 흰색으로 설정 */
+    cursor: pointer;
+    font-size: 0.8em;
+}
+
+button:hover {
+    background-color: lightgray;
+}
+
+.main-container{
+    background-color: white;
+    border: 2px solid black;
+}
+
+#dateInfo, #months {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-bottom: 6.4px; /* 원하는 간격으로 조정 */
+}
+#dateInfo {
+    font-size: 2em;
+}
+#months {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+    font-size: 1.2em;
+    align-items: center;
+    cursor: pointer;
+}
+
+
+#calYear, #dateInfo span, #months span {
+    margin-right: 5px;  // 원하는 간격으로 조정
+    text-align: left;
+}
+
+#prevYear, #nextYear {
+    cursor: pointer;
+}
+
+td {
+    width: 50px;
+    height: 50px;
+}
+
+.Calendar {
+    text-align: center;
+}
+
+.Calendar>thead>tr:first-child>td {
+    font-family: 'Questrial', sans-serif;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.Calendar>thead>tr:last-child>td {
+    font-family: 'Questrial', sans-serif;
+    font-weight: 600;
+}
+
+.Calendar>tbody>tr>td>p {
+    font-family: 'Montserrat', sans-serif;
+    height: 45px;
+    width: 45px;
+    border-radius: 45px;
+    transition-duration: .2s;
+    line-height: 45px;
+    margin: 2.5px;
+    display: block;
+    text-align: center;
+}
+
+.pastDay {
+    color: lightgray;
+}
+
+.today {
+    background-color: #F5D042;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.futureDay {
+    background-color: #FFFFFF;
+    cursor: pointer;
+}
+.futureDay:hover{
+    background:#eee;
+}
+
+.futureDay.choiceDay,
+.today.choiceDay {
+    background: #0A174E;
+    color: #ffffff;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.choiceDay {
+    background-color: #0A174E;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.dateCell {
+    cursor: pointer;
+}
+
+.selectedMonth {
+    color: cornflowerblue;
+}

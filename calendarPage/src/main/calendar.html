@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="UTF-8">
+<head>
+    <meta charset="UTF-8">
+    <title>달력</title>
+    <link rel="stylesheet" type="text/css" href="calendar.css">
+</head>
+<body>
+    <div class="main-container">
+        <div id="dateInfo">
+            <span id="prevYear">&lt;</span> <!-- 이전 년도 버튼 -->
+            <span id="calYear"></span>
+            <span id="nextYear">&gt;</span> <!-- 다음 년도 버튼 -->
+        </div>
+        <div id="months">
+            <span id="month1" onclick="showCalendar(1)">1월</span>
+            <span id="month2" onclick="showCalendar(2)">2월</span>
+            <span id="month3" onclick="showCalendar(3)">3월</span>
+            <span id="month4" onclick="showCalendar(4)">4월</span>
+            <span id="month5" onclick="showCalendar(5)">5월</span>
+            <span id="month6" onclick="showCalendar(6)">6월</span>
+            <span id="month7" onclick="showCalendar(7)">7월</span>
+            <span id="month8" onclick="showCalendar(8)">8월</span>
+            <span id="month9" onclick="showCalendar(9)">9월</span>
+            <span id="month10" onclick="showCalendar(10)">10월</span>
+            <span id="month11" onclick="showCalendar(11)">11월</span>
+            <span id="month12" onclick="showCalendar(12)">12월</span>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="calendarContainer">
+            <table class="Calendar">
+                <thead>
+                <tr>
+                    <td>일</td>
+                    <td>월</td>
+                    <td>화</td>
+                    <td>수</td>
+                    <td>목</td>
+                    <td>금</td>
+                    <td>토</td>
+                </tr>
+                </thead>
+
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+</div>
+    <script src="calendar.js"></script>
+</body>
+</html>

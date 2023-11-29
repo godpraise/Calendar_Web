@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>시간별 캘린더</title>
+    <link rel="stylesheet" type="text/css" href="timeCalendar.css" />
+  </head>
+  <body>
+    <div id="mainWrapper">
+      <div id="scrollableTableWrapper">
+        <div id="scrollableTable">
+          <h1 id="dateTitle"></h1>
+          <table id="timeTable"></table>
+        </div>
+      </div>
+      <div id="eventWrapper">
+        <div id="eventFormWrapper" style="display: none">
+          <form id="eventForm">
+            <label for="eventTitle">제목:</label>
+            <input type="text" id="eventTitle" name="eventTitle" />
+            <label for="eventContent">내용:</label>
+            <textarea id="eventContent" name="eventContent"></textarea>
+            <input type="button" value="추가" onclick="addEvent()" />
+          </form>
+        </div>
+        <!-- 일정의 제목과 내용을 표시하는 div를 추가합니다 -->
+        <div id="eventDisplay" style="display: none">
+          <h2 id="eventDisplayTitle"></h2>
+          <p id="eventDisplayContent"></p>
+        </div>
+      </div>
+    </div>
+    <script src="timeCalendar.js"></script>
+  </body>
+</html>
