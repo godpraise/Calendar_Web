@@ -13,7 +13,7 @@ body {
 
 #mainWrapper {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     width: 80%;
 }
 
@@ -54,8 +54,8 @@ body {
 }
 
 #eventFormWrapper {
-    width: 30%;
-    height: 500px;
+    width: 500px;
+    height: 450px;
     overflow: auto;
     border-radius: 10px;
     background-color: #F0F0F0;
@@ -79,10 +79,16 @@ body {
 }
 
 #eventDisplay {
+    width: 500px;
+    height: 450px;
+    overflow: auto;
+    border-radius: 10px;
+    background-color: #F0F0F0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 20px;
+    justify-content: center;
+    padding: 20px;
 }
 
 #eventDisplayTitle {
@@ -92,4 +98,151 @@ body {
 
 #eventDisplayContent {
     margin-top: 10px;
+}
+
+.eventDisplayItem {
+    margin: 10px 0;
+}
+
+.eventDisplayLabel {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+#eventForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#dateTitleWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#addEventButton,
+#deleteEventButton {
+    margin-left: 10px;
+}
+
+#addEventButton {
+    border: none;
+    background: none;
+}
+
+#addEventButton img {
+    width: 40px;
+    height: 40px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    position: absolute; /* 위치를 조절하기 위해 absolute로 설정 */
+    top: 50%; /* 상단에서 50% 위치에 배치 */
+    left: 50%; /* 좌측에서 50% 위치에 배치 */
+    transform: translate(-50%, -50%); /* 자신의 크기의 50%만큼 이동하여 정중앙에 배치 */
+    background-color: #fefefe;
+    padding: 15px;
+    border: 1px solid #888;
+    width: 35%;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#editEventButton {
+    border: none;
+    background: none;
+    margin-left: 10px;
+}
+
+#editEventButton img {
+    width: 40px;
+    height: 40px;
+}
+
+#eventDetailsWrapper {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #000;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    z-index: 100;
+}
+
+#eventDetailsWrapper h2 {
+    margin: 0 0 10px 0;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#eventDetailsWrapper p {
+    margin: 0 0 10px 0;
+    font-size: 16px;
+}
+
+#eventDetailsWrapper button {
+    display: block;
+    margin: 0 auto;
+    padding: 5px 10px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #000;
+    border: none;
+    cursor: pointer;
+}
+
+#eventListWrapper div {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#eventListWrapper div:hover {
+    background-color: #e8e8e8;
+}
+
+#eventListWrapper div p {
+    margin: 0;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+}
+
+#wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
 }

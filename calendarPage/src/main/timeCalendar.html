@@ -1,35 +1,66 @@
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
+<head>
+    <meta charset="UTF-8">
     <title>시간별 캘린더</title>
-    <link rel="stylesheet" type="text/css" href="timeCalendar.css" />
-  </head>
-  <body>
-    <div id="mainWrapper">
-      <div id="scrollableTableWrapper">
+    <link rel="stylesheet" type="text/css" href="timeCalendar.css">
+</head>
+<body>
+<div id="mainWrapper">
+    <div id="scrollableTableWrapper">
         <div id="scrollableTable">
-          <h1 id="dateTitle"></h1>
-          <table id="timeTable"></table>
+            <div id="dateTitleWrapper">
+                <h1 id="dateTitle"></h1>
+                <button id="addEventButton"><img src="plus-icon.png" alt="Add Event"></button>
+                <button id="editEventButton"><img src="list.png" alt="list"></button>
+                <!--<button id="deleteEventButton" onclick="deleteEvent()">일정 삭제</button>-->
+            </div>
+            <table id="timeTable"></table>
         </div>
-      </div>
-      <div id="eventWrapper">
-        <div id="eventFormWrapper" style="display: none">
-          <form id="eventForm">
-            <label for="eventTitle">제목:</label>
-            <input type="text" id="eventTitle" name="eventTitle" />
-            <label for="eventContent">내용:</label>
-            <textarea id="eventContent" name="eventContent"></textarea>
-            <input type="button" value="추가" onclick="addEvent()" />
-          </form>
+    </div>
+    <div id="eventWrapper">
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <div id="eventFormWrapper" style="display: none;">
+                    <form id="eventForm">
+                        <span class="close">&times;</span>
+                        <label for="eventTitle">제목:</label>
+                        <input type="text" id="eventTitle" name="eventTitle">
+                        <label for="eventCategory">카테고리:</label>
+                        <select id="eventCategory" name="eventCategory">
+                            <option value="공부">공부</option>
+                            <option value="게임">게임</option>
+                            <option value="동아리">동아리</option>
+                            <option value="회의">회의</option>
+                        </select>
+                        <label for="eventContent">내용:</label>
+                        <textarea id="eventContent" name="eventContent"></textarea>
+                        <label for="startTime">시작 시간:</label>
+                        <input type="number" id="startTime" name="startTime" min="0" max="23">
+                        <label for="endTime">종료 시간:</label>
+                        <input type="number" id="endTime" name="endTime" min="0" max="23">
+                        <input type="button" value="추가" onclick="addEvent()">
+                    </form>
+                </div>
+            </div>
         </div>
         <!-- 일정의 제목과 내용을 표시하는 div를 추가합니다 -->
-        <div id="eventDisplay" style="display: none">
-          <h2 id="eventDisplayTitle"></h2>
-          <p id="eventDisplayContent"></p>
+        <div id="eventDisplay" style="display: none;">
+            <div class="eventDisplayItem">
+                <span class="eventDisplayLabel">제목:</span>
+                <span id="eventDisplayTitle"></span>
+            </div>
+            <div class="eventDisplayItem">
+                <span class="eventDisplayLabel">내용:</span>
+                <span id="eventDisplayContent"></span>
+            </div>
         </div>
-      </div>
+        <div id="wrapper">
+            <div id="eventListWrapper" style="display: none;"></div>
+        </div>
+        <div id="eventDetailsWrapper" style="display: none;"></div>
     </div>
+</div>
     <script src="timeCalendar.js"></script>
-  </body>
+</body>
 </html>
