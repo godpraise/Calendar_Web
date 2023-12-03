@@ -11,17 +11,15 @@ body {
     height: 100vh;
     margin: 0;
     padding: 0;
-    background-color: #D8EDE7;
+    background-color : #D8EDE7;
 }
 
-/* 메인 래퍼 스타일 */
 #mainWrapper {
     display: flex;
     justify-content: center;
     width: 90%;
 }
 
-/* 스크롤 가능한 테이블 래퍼 스타일 */
 #scrollableTableWrapper {
     height: 600px; /* 높이 늘리기 */
     width: 800px; /* 너비 늘리기 */
@@ -30,7 +28,7 @@ body {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* 그림자 추가 */
 }
 
-/* 스크롤 가능한 테이블 스타일 */
+
 #scrollableTable {
     height: 100%;
     overflow-y: auto;
@@ -47,7 +45,7 @@ body {
     flex-grow: 2; /* 남은 공간을 최대한 확장 */
 }
 
-/* 시간표 테이블 스타일 */
+/* 시간 테이블 스타일 */
 #timeTable {
     width: 100%;
     background-color: #fff; /* 배경 색 변경 */
@@ -66,7 +64,7 @@ body {
     color: skyblue; /* 글자색 변경 */
 }
 
-/* 이벤트 슬롯 스타일 */
+/* 일정 슬롯 스타일 */
 .eventSlot {
     width: 80%;
     padding: 15px; /* 여백 조절 */
@@ -77,8 +75,9 @@ body {
     color: #333; /* 글자색 변경 */
 }
 
-/* 이벤트 래퍼 스타일 */
-#eventWrapper {
+#eventFormWrapper,
+#eventDisplay,
+#eventDetailsWrapper {
     width: 500px; /* 너비 조절 */
     height: 560px; /* 높이 조절 */
     overflow: auto;
@@ -92,14 +91,8 @@ body {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* 그림자 추가 */
 }
 
-/* 이벤트 폼 래퍼 스타일 */
-#eventFormWrapper {
-    display: none;
-}
-
-/* 이벤트 디스플레이 스타일 */
+/* 추가된 일정 클릭시 나오는 디스플레이 스타일 */
 #eventDisplay {
-    display: none;
     background-color: ivory;
     position: relative;
     width: 400px;
@@ -118,19 +111,19 @@ body {
     height: 120px; /* 높이 조절 */
 }
 
-/* 이벤트 디스플레이 제목 스타일 */
+/* 디스플레이 제목 스타일 */
 #eventDisplayTitle {
     font-size: 50px; /* 글자 크기 키우기 */
     font-weight: bold;
     color: skyblue; /* 글자색 변경 */
 }
 
-/* 이벤트 디스플레이 내용 스타일 */
+/* 디스플레이 내용 스타일 */
 #eventDisplayContent {
     margin-top: 10px;
 }
 
-/* 이벤트 디스플레이 항목 스타일 */
+/* 디스플레이 항목 스타일 */
 .eventDisplayItem {
     margin: 10px 0;
 }
@@ -148,7 +141,7 @@ body {
     align-items: center;
 }
 
-/* 날짜 제목 래퍼 스타일 */
+/* 년월일 제목 스타일 */
 #dateTitleWrapper {
     display: flex;
     justify-content: center;
@@ -156,7 +149,7 @@ body {
     background-color: ivory;
 }
 
-/* 이벤트 추가 버튼, 이벤트 편집 버튼 스타일 */
+/* 일정 추가 버튼, 일정 편집 버튼 스타일 */
 #addEventButton,
 #editEventButton {
     border: none;
@@ -164,13 +157,11 @@ body {
     cursor: pointer;
 }
 
-/* 이벤트 추가 버튼 스타일 */
 #addEventButton img{
     width: 40px;
     height: 40px;
 }
 
-/* 이벤트 편집 버튼 스타일 */
 #editEventButton img{
     width: 42px;
     height: 42px;
@@ -186,9 +177,7 @@ body {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color
-
-    : rgba(0,0,0,0.4);
+    background-color: rgba(0,0,0,0.4);
 }
 
 .modal-content {
@@ -220,9 +209,8 @@ body {
     cursor: pointer;
 }
 
-/* 이벤트 상세 정보 래퍼 스타일 */
+/* 이벤트 상세 정보 감싸는 부분 스타일 */
 #eventDetailsWrapper {
-    display: none;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -259,7 +247,7 @@ body {
     border-radius: 15px;
 }
 
-/* 이벤트 목록 래퍼 스타일 */
+/* 이벤트 목록 div 스타일 */
 #eventListWrapper div {
     margin-bottom: 10px;
     padding: 10px;
@@ -278,13 +266,12 @@ body {
     font-size: 16px;
 }
 
-/* 래퍼 스타일 */
 #wrapper {
-    display: none;
     background-color: ivory;
     width: 100%;
     height: 100%;
     border-radius: 15px;
+    display: none;
 }
 
 /* 이벤트 닫기 버튼 스타일 */
@@ -298,7 +285,6 @@ body {
     cursor: pointer;
 }
 
-/* 이벤트 내용 래퍼 스타일 */
 #contentWrapper {
     background-color: white;
 }
