@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Cute+Font&family=Gasoek+One&family=Iceland&display=swap');
+
+/* 전체 페이지 스타일 */
 body {
-    font-family: Arial, sans-serif;
-    font-size: 14px;
+    font-family: 'Cute Font', sans-serif;
+    font-size: 25px;
     text-align: center;
     display: flex;
     justify-content: center;
@@ -8,98 +11,126 @@ body {
     height: 100vh;
     margin: 0;
     padding: 0;
-    background-color : skyblue;
+    background-color: #D8EDE7;
 }
 
+/* 메인 래퍼 스타일 */
 #mainWrapper {
     display: flex;
     justify-content: center;
-    width: 80%;
+    width: 90%;
 }
 
+/* 스크롤 가능한 테이블 래퍼 스타일 */
 #scrollableTableWrapper {
-    height: 500px;
-    width: 550px;
-    border-radius: 10px;
+    height: 600px; /* 높이 늘리기 */
+    width: 800px; /* 너비 늘리기 */
+    border-radius: 15px; /* 라운드 코너 추가 */
     overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* 그림자 추가 */
 }
 
+/* 스크롤 가능한 테이블 스타일 */
 #scrollableTable {
     height: 100%;
     overflow-y: auto;
-    background-color: #F0F0F0;
+    background-color: #ecf0f1; /* 배경 색 변경 */
     margin: 0 auto;
     padding-right: 0;
 }
 
+/* 날짜 제목 스타일 */
 #dateTitle {
     text-align: center;
+    color: black;
+    font-size: 40px; /* 글자 크기 키우기 */
+    flex-grow: 2; /* 남은 공간을 최대한 확장 */
 }
 
+/* 시간표 테이블 스타일 */
 #timeTable {
     width: 100%;
-    background-color: white;
+    background-color: #fff; /* 배경 색 변경 */
+    border-radius: 15px; /* 라운드 코너 추가 */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 그림자 추가 */
 }
 
+/* 시간 슬롯 스타일 */
 .timeSlot {
     width: 20%;
-    padding: 10px;
-    border: 1px solid black;
+    padding: 15px; /* 여백 조절 */
+    border: 1px solid skyblue; /* 테두리 색 변경 */
+    border-radius: 5px; /* 라운드 코너 추가 */
+    margin: 5px; /* 여백 추가 */
+    background-color: ivory; /* 배경 색 변경 */
+    color: skyblue; /* 글자색 변경 */
 }
 
+/* 이벤트 슬롯 스타일 */
 .eventSlot {
     width: 80%;
-    padding: 10px;
-    border: 1px solid black;
+    padding: 15px; /* 여백 조절 */
+    border: 1px solid skyblue; /* 테두리 색 변경 */
+    border-radius: 5px; /* 라운드 코너 추가 */
+    margin: 5px; /* 여백 추가 */
+    background-color: #fff; /* 배경 색 변경 */
+    color: #333; /* 글자색 변경 */
 }
 
-#eventFormWrapper {
-    width: 500px;
-    height: 450px;
+/* 이벤트 래퍼 스타일 */
+#eventWrapper {
+    width: 500px; /* 너비 조절 */
+    height: 560px; /* 높이 조절 */
     overflow: auto;
-    border-radius: 10px;
-    background-color: #F0F0F0;
+    border-radius: 15px; /* 라운드 코너 추가 */
+    background-color: #D8EDE7; /* 배경 색 변경 */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* 그림자 추가 */
 }
 
+/* 이벤트 폼 래퍼 스타일 */
+#eventFormWrapper {
+    display: none;
+}
+
+/* 이벤트 디스플레이 스타일 */
+#eventDisplay {
+    display: none;
+    background-color: ivory;
+    position: relative;
+    width: 400px;
+}
+
+/* 이벤트 폼 스타일 */
 #eventFormWrapper label,
 #eventFormWrapper input,
 #eventFormWrapper textarea {
     display: block;
-    margin-bottom: 10px;
+    margin-bottom: 15px; /* 여백 조절 */
 }
 
 #eventFormWrapper textarea {
     width: 100%;
-    height: 100px;
+    height: 120px; /* 높이 조절 */
 }
 
-#eventDisplay {
-    width: 500px;
-    height: 450px;
-    overflow: auto;
-    border-radius: 10px;
-    background-color: #F0F0F0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-}
-
+/* 이벤트 디스플레이 제목 스타일 */
 #eventDisplayTitle {
-    font-size: 18px;
+    font-size: 50px; /* 글자 크기 키우기 */
     font-weight: bold;
+    color: skyblue; /* 글자색 변경 */
 }
 
+/* 이벤트 디스플레이 내용 스타일 */
 #eventDisplayContent {
     margin-top: 10px;
 }
 
+/* 이벤트 디스플레이 항목 스타일 */
 .eventDisplayItem {
     margin: 10px 0;
 }
@@ -109,33 +140,43 @@ body {
     margin-right: 10px;
 }
 
-#eventForm {
+/* 이벤트 폼, 이벤트 리스트 래퍼 스타일 */
+#eventForm,
+#eventListWrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+/* 날짜 제목 래퍼 스타일 */
 #dateTitleWrapper {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+    background-color: ivory;
 }
 
+/* 이벤트 추가 버튼, 이벤트 편집 버튼 스타일 */
 #addEventButton,
-#deleteEventButton {
-    margin-left: 10px;
-}
-
-#addEventButton {
+#editEventButton {
     border: none;
     background: none;
+    cursor: pointer;
 }
 
-#addEventButton img {
+/* 이벤트 추가 버튼 스타일 */
+#addEventButton img{
     width: 40px;
     height: 40px;
 }
 
+/* 이벤트 편집 버튼 스타일 */
+#editEventButton img{
+    width: 42px;
+    height: 42px;
+}
+
+/* 모달 창 스타일 */
 .modal {
     display: none;
     position: fixed;
@@ -145,21 +186,24 @@ body {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4);
+    background-color
+
+    : rgba(0,0,0,0.4);
 }
 
 .modal-content {
-    position: absolute; /* 위치를 조절하기 위해 absolute로 설정 */
-    top: 50%; /* 상단에서 50% 위치에 배치 */
-    left: 50%; /* 좌측에서 50% 위치에 배치 */
-    transform: translate(-50%, -50%); /* 자신의 크기의 50%만큼 이동하여 정중앙에 배치 */
-    background-color: #fefefe;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #c5e6dc;
     padding: 15px;
-    border: 1px solid #888;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     width: 35%;
 }
 
+/* 닫기 버튼 스타일 */
 .close {
     position: absolute;
     top: 10px;
@@ -176,25 +220,17 @@ body {
     cursor: pointer;
 }
 
-#editEventButton {
-    border: none;
-    background: none;
-    margin-left: 10px;
-}
-
-#editEventButton img {
-    width: 40px;
-    height: 40px;
-}
-
+/* 이벤트 상세 정보 래퍼 스타일 */
 #eventDetailsWrapper {
+    display: none;
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 300px;
+    width: 400px; /* 너비 조절 */
+    height: 300px;
     padding: 20px;
-    background-color: #fff;
+    background-color: ivory;
     border: 1px solid #000;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
     z-index: 100;
@@ -202,13 +238,13 @@ body {
 
 #eventDetailsWrapper h2 {
     margin: 0 0 10px 0;
-    font-size: 20px;
+    font-size: 50px; /* 글자 크기 키우기 */
     font-weight: bold;
 }
 
 #eventDetailsWrapper p {
     margin: 0 0 10px 0;
-    font-size: 16px;
+    font-size: 30px;
 }
 
 #eventDetailsWrapper button {
@@ -216,33 +252,65 @@ body {
     margin: 0 auto;
     padding: 5px 10px;
     font-size: 16px;
-    color: #fff;
-    background-color: #000;
+    color: black;
+    background-color: #c5e6dc;
     border: none;
     cursor: pointer;
+    border-radius: 15px;
 }
 
+/* 이벤트 목록 래퍼 스타일 */
 #eventListWrapper div {
     margin-bottom: 10px;
     padding: 10px;
-    background-color: #f8f8f8;
+    background-color: #f5f5ce;
     border: 1px solid #ddd;
     border-radius: 4px;
     cursor: pointer;
 }
 
 #eventListWrapper div:hover {
-    background-color: #e8e8e8;
+    background-color: skyblue;
 }
 
 #eventListWrapper div p {
     margin: 0;
     font-size: 16px;
-    font-family: Arial, sans-serif;
 }
 
+/* 래퍼 스타일 */
 #wrapper {
-    position: relative;
+    display: none;
+    background-color: ivory;
     width: 100%;
     height: 100%;
+    border-radius: 15px;
+}
+
+/* 이벤트 닫기 버튼 스타일 */
+.eventClose {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* 이벤트 내용 래퍼 스타일 */
+#contentWrapper {
+    background-color: white;
+}
+
+/* 달력으로 돌아가기 버튼 스타일 */
+#backToCalendar {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+#backToCalendar img {
+    width: 30px;
+    height: 30px;
 }

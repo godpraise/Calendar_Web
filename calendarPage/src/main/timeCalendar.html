@@ -6,24 +6,25 @@
     <link rel="stylesheet" type="text/css" href="timeCalendar.css">
 </head>
 <body>
-<div id="mainWrapper">
-    <div id="scrollableTableWrapper">
-        <div id="scrollableTable">
-            <div id="dateTitleWrapper">
-                <h1 id="dateTitle"></h1>
-                <button id="addEventButton"><img src="plus-icon.png" alt="Add Event"></button>
-                <button id="editEventButton"><img src="list.png" alt="list"></button>
-                <!--<button id="deleteEventButton" onclick="deleteEvent()">일정 삭제</button>-->
+<span id="backToCalendar"><img src="return.png" alt="return"></span> <!-- 달력 페이지로 돌아가는 버튼 -->
+<div id="mainWrapper"> <!-- 전체 페이지를 감싸는 부분 -->
+    <div id="scrollableTableWrapper"> <!-- 스크롤 가능한 테이블을 감싸는 부분 -->
+        <div id="scrollableTable"> <!-- 스크롤 가능한 테이블 -->
+            <div id="dateTitleWrapper"> <!-- 날짜 제목을 감싸는 부분 -->
+                <h1 id="dateTitle"></h1> <!-- 날짜 제목 -->
+                <button id="addEventButton"><img src="plus-icon.png" alt="Add"></button> <!-- 이벤트 추가 버튼 -->
+                <button id="editEventButton"><img src="list.png" alt="list"></button> <!-- 이벤트 편집 버튼 -->
             </div>
-            <table id="timeTable"></table>
+            <table id="timeTable"></table> <!-- 시간 테이블 -->
         </div>
     </div>
-    <div id="eventWrapper">
-        <div id="myModal" class="modal">
-            <div class="modal-content">
-                <div id="eventFormWrapper" style="display: none;">
-                    <form id="eventForm">
-                        <span class="close">&times;</span>
+    <div id="eventWrapper"> <!-- 이벤트를 감싸는 부분 -->
+        <div id="myModal" class="modal"> <!-- 모달 창 -->
+            <div class="modal-content"> <!-- 모달 내용 -->
+                <div id="eventFormWrapper" style="display: none;"> <!-- 이벤트 폼을 감싸는 부분 -->
+                    <form id="eventForm"> <!-- 이벤트 폼 -->
+                        <span class="close">&times;</span> <!-- 닫기 버튼 -->
+                        <!-- 이벤트 제목, 카테고리, 내용, 시작 시간, 종료 시간 입력 필드 -->
                         <label for="eventTitle">제목:</label>
                         <input type="text" id="eventTitle" name="eventTitle">
                         <label for="eventCategory">카테고리:</label>
@@ -39,28 +40,28 @@
                         <input type="number" id="startTime" name="startTime" min="0" max="23">
                         <label for="endTime">종료 시간:</label>
                         <input type="number" id="endTime" name="endTime" min="0" max="23">
-                        <input type="button" value="추가" onclick="addEvent()">
+                        <input type="button" value="추가" onclick="addEvent()"> <!-- 이벤트 추가 버튼 -->
                     </form>
                 </div>
             </div>
         </div>
-        <!-- 일정의 제목과 내용을 표시하는 div를 추가합니다 -->
-        <div id="eventDisplay" style="display: none;">
-            <div class="eventDisplayItem">
-                <span class="eventDisplayLabel">제목:</span>
-                <span id="eventDisplayTitle"></span>
-            </div>
-            <div class="eventDisplayItem">
-                <span class="eventDisplayLabel">내용:</span>
-                <span id="eventDisplayContent"></span>
+        <div id="eventDisplay" style="display: none;"> <!-- 일정 추가 후 추가된 일정을 누르면 나오는 디스플레이 -->
+            <div class="eventDisplayItem"> <!-- 디스플레이 항목 -->
+                <h2 id="eventDisplayTitle"></h2> <!-- 제목 -->
+                <p id="eventDisplayTime"></p> <!-- 시간 -->
+                <p id="eventDisplayCategory"></p> <!-- 카테고리 -->
+                <div class="contentWrapper"> <!-- 이벤트 내용을 감싸는 부분 -->
+                    <p id="eventDisplayContent"></p> <!-- 이벤트 내용 -->
+                </div>
+                <span class="eventClose">&times;</span> <!-- 이벤트 닫기 버튼 -->
             </div>
         </div>
         <div id="wrapper">
-            <div id="eventListWrapper" style="display: none;"></div>
+            <div id="eventListWrapper" style="display: none;"></div> <!-- 이벤트 목록-->
         </div>
-        <div id="eventDetailsWrapper" style="display: none;"></div>
+        <div id="eventDetailsWrapper" style="display: none;"></div> <!-- 이벤트 상세 정보 -->
     </div>
 </div>
-    <script src="timeCalendar.js"></script>
+<script src="timeCalendar.js"></script>
 </body>
 </html>

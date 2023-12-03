@@ -1,8 +1,9 @@
+// 페이지가 로드되면 현재 월의 달력을 보여주고, 달력을 만듭니다.
 window.onload = function () {
     let currentMonth = today.getMonth() + 1; // 현재 월 가져오기 (0부터 시작하므로 1을 더해줍니다)
     showCalendar(currentMonth); // 현재 월을 선택된 상태로 보여주기
-    buildCalendar();
-}    // 웹 페이지가 로드되면 buildCalendar 실행
+    buildCalendar(); // 달력을 만듭니다.
+}
 
 let nowMonth = new Date();  // 현재 달을 페이지를 로드한 날의 달로 초기화
 let today = new Date();     // 페이지를 로드한 날짜를 저장
@@ -35,6 +36,16 @@ function buildCalendar() {
             }
             cell.classList.add("dateCell");  // "dateCell" class 추가
             cell.innerText = dateNum.toString();  // 날짜 표시
+
+            // 일요일 색상 변경
+            if (j === 0) { // 일요일은 한 주의 첫 번째 날이므로 j가 0일 때입니다.
+                cell.classList.add('sunday'); // 'sunday' 클래스 추가
+            }
+
+            if (j === 6) {
+                cell.classList.add('saturday');
+            }
+
             cell.addEventListener('click', function() {
                 choiceDate(this);  // 날짜를 클릭하면 choiceDate 함수 호출
             });
@@ -60,6 +71,7 @@ function choiceDate(cell) {
     window.location.href = "timeCalendar.html?date=" + selectedDate;
 }
 
+// 'months' 요소를 클릭하면 발생하는 이벤트 핸들러
 document.getElementById("months").addEventListener("click", function(e) {
     if(e.target.tagName === "SPAN") {
         nowMonth = new Date(nowMonth.getFullYear(), parseInt(e.target.innerText) - 1, 1);
@@ -67,6 +79,7 @@ document.getElementById("months").addEventListener("click", function(e) {
     }
 });
 
+// 페이지가 로드되면 'prevYear'와 'nextYear' 버튼에 이벤트 리스너를 추가합니다.
 document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("prevYear").addEventListener("click", function () {
         nowMonth.setFullYear(nowMonth.getFullYear() - 1); // 현재 년도를 1 감소
@@ -81,11 +94,12 @@ document.addEventListener("DOMContentLoaded", function() {
         buildCalendar();    // 달력 다시 생성
     });
 });
+// 년도 업데이트
 function updateYear() {
     document.getElementById("calYear").innerText = nowMonth.getFullYear().toString();
 }
-// 다음 년도로 이동
 
+// 선택한 월로 이동
 function showCalendar(month) {
     // 이전에 선택된 달에서 'selectedMonth' 클래스 제거
     let selectedMonth = document.querySelector('.selectedMonth');
