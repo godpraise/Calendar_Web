@@ -87,10 +87,25 @@ window.onload = function() {
         }
     }
 
+
     // 'editEventButton' 클릭 이벤트를 추가합니다.
     document.getElementById("editEventButton").addEventListener("click", function() {
         showEventList();
+        // '일정 추가' 아이콘의 표시 상태를 'inline'으로 변경합니다.
+        var addEventButton = document.getElementById('addEventButton');
+        addEventButton.style.display = 'inline';
     });
+
+
+    document.getElementById('cancelButton').addEventListener('click', function(e) {
+        // 취소 버튼 클릭 시, 이벤트 리스트 닫기
+        document.getElementById('wrapper').style.display = 'none';
+        // '일정 추가' 아이콘의 표시 상태를 'none'으로 변경합니다.
+        var addEventButton = document.getElementById('addEventButton');
+        addEventButton.style.display = 'none';
+
+    });
+
 };
 
 // 이벤트 세부 정보를 보여주는 함수
@@ -162,8 +177,15 @@ function showEventList() {
         eventItem.dataset.event = JSON.stringify(events[title]); // 클릭 이벤트에서 사용할 이벤트 데이터
         eventItem.addEventListener("click", showEventDetails); // 클릭 이벤트 추가
 
-        var deleteButton = document.createElement('button');
-        deleteButton.textContent = '-'; // 삭제 버튼 텍스트
+        var deleteButton = document.createElement('img');
+        deleteButton.id = 'deleteButton';
+        deleteButton.src = 'minus.png'; // 이미지 URL을 설정
+        deleteButton.alt = 'delete'; // 이미지에 대한 대체 텍스트 설정
+        deleteButton.style.cursor = 'pointer'; // 마우스 커서를 포인터로 변경
+        deleteButton.style.width = '30px'; // 이미지 너비 설정
+        deleteButton.style.height = '30px'; // 이미지 높이 설정
+        deleteButton.style.verticalAlign = 'middle';
+
         deleteButton.addEventListener('click', function(e) {
             e.stopPropagation();  // 이벤트 버블링 방지
             // 버튼 클릭 시, 리스트에서 해당 일정 삭제
@@ -177,6 +199,8 @@ function showEventList() {
                     if (eventData.title === title) { // 제목이 일치하는지 확인
                         eventSlot.textContent = '';
                         eventSlot.dataset.event = '';
+                        // 배경색도 제거합니다.
+                        eventSlot.style.backgroundColor = '';
                     }
                 }
             }
@@ -211,6 +235,20 @@ document.getElementById("addEventButton").addEventListener("click", function() {
     showEventForm();
 });
 
+// 이벤트 제목을 기반으로 색상을 생성하는 함수
+function getColorFromTitle(title) {
+    var hash = 0;
+    for (var i = 0; i < title.length; i++) {
+        hash = title.charCodeAt(i) + ((hash << 5) - hash);
+    }
+    var color = '#';
+    for (var i = 0; i < 3; i++) {
+        var value = (hash >> (i * 8)) & 0xFF;
+        color += ('00' + value.toString(16)).substr(-2);
+    }
+    return color;
+}
+
 // 이벤트를 추가하는 함수
 function addEvent() {
     // HTML 요소에서 사용자 입력 값을 가져옵니다.
@@ -223,13 +261,17 @@ function addEvent() {
     // 시작 시간과 종료 시간이 같으면 1, 그렇지 않으면 두 시간의 차이
     var eventDuration = startRowId === endRowId ? 1 : (endRowId - startRowId);
 
+    // 이벤트 제목을 기반으로 색상을 생성합니다.
+    var color = getColorFromTitle(eventTitle);
 
     // 시작 시간부터 종료 시간까지 해당하는 슬롯에 이벤트 정보를 추가합니다.
     for (var i = startRowId; i <= endRowId; i++) {
         var eventSlot = document.getElementById(`row${i}`).getElementsByClassName("eventSlot")[0];
         eventSlot.textContent = eventTitle;
-        // startTime, endTime, eventDuration, category를 이벤트 데이터에 추가
         eventSlot.dataset.event = JSON.stringify({ title: eventTitle, content: eventContent, startTime: startRowId, endTime: endRowId, duration: eventDuration, category: eventCategory });
+
+        // 'eventSlot'의 배경색을 생성한 색상으로 설정합니다.
+        eventSlot.style.backgroundColor = color;
     }
 
     // 폼을 초기화하고 모달을 닫습니다.
@@ -238,7 +280,16 @@ function addEvent() {
     modal.style.display = "none";
 
     showEventList();
+}
 
+// 랜덤한 색상을 생성하는 함수
+function getRandomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
 }
 
 // 폼을 초기화하는 함수
@@ -281,6 +332,10 @@ document.getElementById("editEventButton").addEventListener("click", function() 
 
     // editEventButton을 클릭했을 때만 wrapper가 열리도록 수정
     wrapper.style.display = (wrapper.style.display === 'none' || wrapper.style.display === '') ? 'block' : 'none';
+
+    // '일정 추가' 아이콘의 표시 상태를 'inline'으로 변경합니다.
+    var addEventButton = document.getElementById('addEventButton');
+    addEventButton.style.display = 'inline';
 
     if (wrapper.style.display === 'block') {
         // eventDisplay는 항상 숨겨집니다.

@@ -104,12 +104,14 @@ function showCalendar(month) {
     // 이전에 선택된 달에서 'selectedMonth' 클래스 제거
     let selectedMonth = document.querySelector('.selectedMonth');
     if (selectedMonth) {
+        selectedMonth.style.backgroundColor = ''; // 배경색 초기화
         selectedMonth.classList.remove('selectedMonth');
     }
 
     // 선택된 달에 'selectedMonth' 클래스 추가
     let monthElement = document.getElementById('month' + month);
     if (monthElement) {
+        monthElement.style.backgroundColor = '#11ab7f'; // 배경색 변경
         monthElement.classList.add('selectedMonth');
     }
 

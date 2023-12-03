@@ -6,13 +6,19 @@
     <link rel="stylesheet" type="text/css" href="timeCalendar.css">
 </head>
 <body>
+<div id="user-info">
+    <span id="username">사용자 이름</span>
+    <button id="logout-button">로그아웃</button>
+</div>
 <span id="backToCalendar"><img src="return.png" alt="return"></span> <!-- 달력 페이지로 돌아가는 버튼 -->
 <div id="mainWrapper"> <!-- 전체 페이지를 감싸는 부분 -->
     <div id="scrollableTableWrapper"> <!-- 스크롤 가능한 테이블을 감싸는 부분 -->
         <div id="scrollableTable"> <!-- 스크롤 가능한 테이블 -->
             <div id="dateTitleWrapper"> <!-- 날짜 제목을 감싸는 부분 -->
                 <h1 id="dateTitle"></h1> <!-- 날짜 제목 -->
-                <button id="editEventButton"><img src="list.png" alt="list"></button> <!-- 이벤트 편집 버튼 -->
+                <button id="addEventButton"><img src="plus-icon.png" alt="Add"></button> <!-- 이벤트 추가 버튼 -->
+                <button id="editEventButton">편집</button> <!-- 이벤트 편집 버튼 -->
+                <button id="cancelButton">취소</button>
             </div>
             <table id="timeTable"></table> <!-- 시간 테이블 -->
         </div>
@@ -56,7 +62,6 @@
             </div>
         </div>
         <div id="wrapper">
-            <button id="addEventButton"><img src="plus-icon.png" alt="Add"></button> <!-- 이벤트 추가 버튼 -->
             <div id="eventListWrapper" style="display: none;"></div> <!-- 이벤트 목록-->
         </div>
         <div id="eventDetailsWrapper" style="display: none;"></div> <!-- 이벤트 상세 정보 -->

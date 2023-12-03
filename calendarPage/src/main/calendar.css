@@ -2,6 +2,31 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Cute+Font&family=Gasoek+One&family=Iceland&display=swap');
     /* 전체 페이지 스타일 */
+
+#user-info {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+#username {
+    margin-right: 10px;
+    font-size: 25px;
+}
+
+#logout-button {
+    background-color: lightskyblue; /* 버튼의 배경색 */
+    color: white; /* 버튼의 글자색 */
+    border: none;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+#logout-button:hover {
+    background-color: lightcoral; /* 마우스를 올렸을 때의 배경색 */
+}
+
 body {
     font-family: 'Cute Font', sans-serif;
     background-color: #D8EDE7;
@@ -160,9 +185,10 @@ td {
 
 /* 오늘 날짜 스타일 */
 .today {
-    background-color: lightskyblue;
+    background-color: transparent; /* 배경색을 투명하게 변경 */
+    border: 2px solid lightskyblue; /* 테두리에 색상 적용 */
     border-radius: 100px;
-    color: white;
+    color: black;
     font-weight: 600;
     cursor: pointer;
 }
@@ -182,16 +208,12 @@ td {
 /* 선택된 날짜 스타일 */
 .futureDay.choiceDay,
 .today.choiceDay {
-    background: #0A174E;
-    color: #ffffff;
     font-weight: 600;
     cursor: pointer;
 }
 
 /* 선택된 날짜 스타일 */
 .choiceDay {
-    background-color: #0A174E;
-    color: #ffffff;
     font-weight: 600;
 }
 
@@ -202,7 +224,7 @@ td {
 
 /* 선택된 월 스타일 */
 .selectedMonth {
-    color: cornflowerblue;
+    color: black;
 }
 
 /* 일요일 스타일 */
