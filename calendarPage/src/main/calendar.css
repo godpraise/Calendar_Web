@@ -50,7 +50,7 @@ button:hover {
 
 /* 메인 컨테이너 스타일 */
 .main-container {
-    background-color: white;
+    background-color: #8adec6;
     border: 2px solid black;
     padding: 30px; /* 여백 늘리기 */
     border-radius: 10px;

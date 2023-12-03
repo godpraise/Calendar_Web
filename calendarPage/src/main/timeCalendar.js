@@ -161,6 +161,28 @@ function showEventList() {
         eventItem.innerHTML = `제목: ${title}, 카테고리: ${events[title].category}, 시간: ${events[title].endTime - events[title].startTime}시간`; // 제목, 카테고리, 총 시간을 표시
         eventItem.dataset.event = JSON.stringify(events[title]); // 클릭 이벤트에서 사용할 이벤트 데이터
         eventItem.addEventListener("click", showEventDetails); // 클릭 이벤트 추가
+
+        var deleteButton = document.createElement('button');
+        deleteButton.textContent = '-'; // 삭제 버튼 텍스트
+        deleteButton.addEventListener('click', function(e) {
+            e.stopPropagation();  // 이벤트 버블링 방지
+            // 버튼 클릭 시, 리스트에서 해당 일정 삭제
+            eventListWrapper.removeChild(eventItem);
+
+            // eventSlot에서 해당 일정 삭제
+            for (var i = events[title].startTime; i <= events[title].endTime; i++) {
+                var eventSlot = document.getElementById(`row${i}`).getElementsByClassName("eventSlot")[0];
+                if (eventSlot.dataset.event) {
+                    var eventData = JSON.parse(eventSlot.dataset.event);
+                    if (eventData.title === title) { // 제목이 일치하는지 확인
+                        eventSlot.textContent = '';
+                        eventSlot.dataset.event = '';
+                    }
+                }
+            }
+        });
+        eventItem.appendChild(deleteButton); // 삭제 버튼을 일정 요소에 추가
+
         eventListWrapper.appendChild(eventItem);
     }
     // 일정 팝업이 열려있으면 닫습니다.
@@ -201,6 +223,7 @@ function addEvent() {
     // 시작 시간과 종료 시간이 같으면 1, 그렇지 않으면 두 시간의 차이
     var eventDuration = startRowId === endRowId ? 1 : (endRowId - startRowId);
 
+
     // 시작 시간부터 종료 시간까지 해당하는 슬롯에 이벤트 정보를 추가합니다.
     for (var i = startRowId; i <= endRowId; i++) {
         var eventSlot = document.getElementById(`row${i}`).getElementsByClassName("eventSlot")[0];
@@ -214,11 +237,8 @@ function addEvent() {
     var modal = document.getElementById("myModal");
     modal.style.display = "none";
 
-    // 일정이 추가된 후 리스트를 갱신합니다.
-    if (document.getElementById('wrapper').style.display === 'block') {
-        document.getElementById('wrapper').style.display = 'none';
-        showEventList();
-    }
+    showEventList();
+
 }
 
 // 폼을 초기화하는 함수
@@ -267,7 +287,7 @@ document.getElementById("editEventButton").addEventListener("click", function() 
         var eventDisplay = document.getElementById("eventDisplay");
         eventDisplay.style.display = 'none';
 
-        // showEventList()를 여기서 호출하여 이벤트 리스트를 보여줍니다.
+        // showEventList()를 무조건 호출하여 이벤트 리스트를 보여줍니다.
         showEventList();
     }
 });

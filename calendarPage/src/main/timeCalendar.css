@@ -21,9 +21,12 @@ body {
 }
 
 #scrollableTableWrapper {
+    position: relative; /* 상대 위치를 사용하여 편집 버튼의 위치를 조정합니다 */
+    background-color: ivory;
     height: 600px; /* 높이 늘리기 */
     width: 800px; /* 너비 늘리기 */
     border-radius: 15px; /* 라운드 코너 추가 */
+    padding-bottom: 50px;
     overflow: hidden;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* 그림자 추가 */
 }
@@ -57,18 +60,18 @@ body {
 .timeSlot {
     width: 20%;
     padding: 15px; /* 여백 조절 */
-    border: 1px solid skyblue; /* 테두리 색 변경 */
+    border: 1px solid black; /* 테두리 색 변경 */
     border-radius: 5px; /* 라운드 코너 추가 */
     margin: 5px; /* 여백 추가 */
     background-color: ivory; /* 배경 색 변경 */
-    color: skyblue; /* 글자색 변경 */
+    color: black; /* 글자색 변경 */
 }
 
 /* 일정 슬롯 스타일 */
 .eventSlot {
     width: 80%;
     padding: 15px; /* 여백 조절 */
-    border: 1px solid skyblue; /* 테두리 색 변경 */
+    border: 1px solid black; /* 테두리 색 변경 */
     border-radius: 5px; /* 라운드 코너 추가 */
     margin: 5px; /* 여백 추가 */
     background-color: #fff; /* 배경 색 변경 */
@@ -299,4 +302,14 @@ body {
 #backToCalendar img {
     width: 30px;
     height: 30px;
+}
+
+#editEventButton {
+    position: absolute; /* 절대 위치를 사용하여 mainWrapper 안에서 위치를 조정합니다 */
+    bottom: 0; /* scrollableTableWrapper의 하단에서 20px 위에 위치하도록 합니다 */
+    left: 50%; /* scrollableTableWrapper의 가운데에 위치하도록 합니다 */
+    transform: translateX(-50%); /* 가운데 정렬을 위해 X축으로 -50% 이동시킵니다 */
+    border: none; /* 기본 버튼 테두리를 제거합니다 */
+    background: none; /* 기본 버튼 배경을 제거합니다 */
+    cursor: pointer; /* 마우스 커서를 '손가락' 모양으로 변경합니다 */
 }
